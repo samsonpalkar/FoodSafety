@@ -1,0 +1,56 @@
+apply plugin: 'java'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'groovy'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+//apply plugin: 'war'
+apply plugin: 'io.spring.dependency-management'
+
+/*
+war {
+    baseName = 'FoodSafety'
+}
+*/
+
+sourceCompatibility = 1.7
+
+repositories {
+    mavenCentral()
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.2'
+}
+
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath('org.springframework.boot:spring-boot-gradle-plugin:1.4.2.RELEASE')
+    }
+}
+
+springBoot {
+    excludeDevtools = true
+    executable = true
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    compile ('org.codehaus.groovy:groovy-all:2.3.11')
+    compile('org.springframework.boot:spring-boot-starter-tomcat')
+    compile('org.apache.tomcat.embed:tomcat-embed-jasper')
+    compile("org.thymeleaf:thymeleaf-spring4")
+    compile("org.apache.commons:commons-lang3:3.0")
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+    compile("org.springframework.boot:spring-boot-starter-data-rest")
+    compile('com.h2database:h2:1.4.193')
+    compile('org.codehaus.woodstox:woodstox-core-asl:4.4.1')
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    runtime('org.springframework.boot:spring-boot-devtools')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile group: 'junit', name: 'junit', version: '4.11'
+}

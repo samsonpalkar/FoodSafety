@@ -1,0 +1,27 @@
+# Created by .ignore support plugin (hsz.mobi)
+.gradle
+*.db
+/out
+/FoodSafety
+/gradle
+gradlew
+gradlew.bat
+/tomcat
+### Build files ###
+build
+bin
+*.class
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+*.ids
