@@ -2,11 +2,9 @@ package com.riskManagement;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
  * Created by samson.palkar on 2/13/2017.
@@ -15,10 +13,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 public class Application extends SpringBootServletInitializer {
 
-    @Override
+/*    @Override
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(Application.class);
-    }
+    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
@@ -28,8 +26,7 @@ public class Application extends SpringBootServletInitializer {
      * Main end point for handling requests.
      */
     @RequestMapping("/")
-    @ResponseBody
     public String mainEndPoint() throws Exception{
-        return "Home Page";
+       return "index";
     }
 }
