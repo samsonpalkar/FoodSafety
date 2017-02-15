@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8"/>
     <title>FoodSafety</title>
+    <link rel="stylesheet" href="css/custom/common.css"/>
+    <script type="text/javascript" src="js/custom/common.js"></script>
 </head>
 <body>
-<p>Homepage, Welcome.</p>
+<div th:include="fragments/js :: jquerys"></div>
+<div th:include="fragments/js :: bootstrap"></div>
+<p class="mainBackground">Homepage, Welcome.</p>
 </body>
 </html>
