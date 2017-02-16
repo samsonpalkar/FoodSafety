@@ -5,6 +5,12 @@
     <title>Error Page</title>
 </head>
 <body>
-<p>An unexpected error occurred.</p>
+<div th:include="fragments/js :: jquerys"></div>
+<div th:include="fragments/js :: bootstrap"></div>
+<div th:include="fragments/js :: common"></div>
+<form method="get" action="app">
+    <p>An unexpected error occurred.</p>
+    <button class="button" type="submit">Back</button>
+</form>
 </body>
 </html>

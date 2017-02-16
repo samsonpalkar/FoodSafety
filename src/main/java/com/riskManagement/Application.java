@@ -29,4 +29,25 @@ public class Application extends SpringBootServletInitializer {
     public String mainEndPoint() throws Exception{
        return "index";
     }
+
+    /**
+     * Main end point for handling requests.
+     */
+    @RequestMapping("/app")
+    public String index() throws Exception{
+        return mainEndPoint();
+    }
+
+    /**
+     * Main end point for handling requests.
+     */
+    @RequestMapping("/manageSelfInspectionChecklist")
+    public String searchForms() throws Exception{
+        return "selfInspection/manager/manageSelfInspectionChecklist";
+    }
+
+    /**
+     * Beans
+     */
+
 }
