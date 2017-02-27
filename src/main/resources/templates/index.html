@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <meta charset="UTF-8"/>
-    <title>FoodSafety</title>
+    <meta th:charset="UTF-8"/>
+    <title th:title="FoodSafety">FoodSafety</title>
+    <script type="application/javascript" src="js/custom/managerChecklist.js"></script>
 </head>
 <body>
 <div th:include="fragments/js :: jquerys"></div>
@@ -12,9 +13,11 @@
     WELCOME
 </div>
 <div>
-    <form method="get" action="manageSelfInspectionChecklist">
-        <button type="submit">Search Forms</button>
-    </form>
+    <ol>
+        <li value="1">
+            <a id="manageSelfInspectionChecklist">Manager Self Inspection Checklist</a>
+        </li>
+    </ol>
 </div>
 </body>
 </html>
