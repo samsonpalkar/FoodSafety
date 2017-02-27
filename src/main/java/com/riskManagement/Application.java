@@ -1,5 +1,6 @@
 package com.riskManagement;
 
+import com.riskManagement.managerChecklist.ManagerChecklist;
 import com.riskManagement.managerChecklist.ManagerChecklistController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
@@ -49,10 +50,10 @@ public class Application extends SpringBootServletInitializer {
     /**
      * Main end point for handling requests.
      */
-    @RequestMapping("/manageSelfInspectionChecklist")
+    @RequestMapping("/searchForms")
     public ModelAndView searchForms() throws Exception{
-        Map<String, List> model = new HashMap<String, List>();
-        List list = (List) managerChecklistController.managerChecklistService.managerChecklistRepository.findAll();
+        Map<String, List<ManagerChecklist>> model = new HashMap<>();
+        List<ManagerChecklist> list = (List<ManagerChecklist>) managerChecklistController.managerChecklistService.managerChecklistRepository.findAll();
         model.put("firstForm", list);
         String view = "selfInspection/manager/manageSelfInspectionChecklist";
         ModelAndView modelAndView = new ModelAndView(view, model);

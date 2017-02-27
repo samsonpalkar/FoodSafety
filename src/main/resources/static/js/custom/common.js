@@ -8,5 +8,5 @@ function baseHref()
 }
 function baseURL()
 {
-    baseHref();
+    return baseHref();
 }

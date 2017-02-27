@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8"/>
     <title>Title</title>
+    <script type="application/javascript" src="js/custom/managerChecklist.js"></script>
 </head>
 <body>
 <div th:include="fragments/js :: jquerys"></div>
 <div th:include="fragments/js :: bootstrap"></div>
 <div th:include="fragments/js :: common"></div>
-<form method="GET">
-    <input type="submit" onclick="loadForm('app')"/>
+<form action="app" method="GET">
+    <input type="submit" onclick="loadForm('index')"/>
 </form>
 </body>
 </html>
