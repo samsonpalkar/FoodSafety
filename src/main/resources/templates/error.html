@@ -9,8 +9,10 @@
 <div th:include="fragments/js :: bootstrap"></div>
 <div th:include="fragments/js :: common"></div>
 <form method="get" action="app">
-    <p>An unexpected error occurred.</p>
-    <button onclick="loadForm('index')" class="button" type="submit">Back</button>
+    <div class="jumbotron text-center">
+        <p>An unexpected error occurred.</p>
+        <button onclick="loadForm('index')" class="btn btn-lg btn-default-outline" type="submit">Back</button>
+    </div>
 </form>
 </body>
 </html>
