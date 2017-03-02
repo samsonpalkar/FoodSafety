@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
-    <meta charset="UTF-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>Title</title>
     <script type="application/javascript" src="js/custom/managerChecklist.js"></script>
 </head>
@@ -11,6 +11,30 @@
 <div th:include="fragments/js :: common"></div>
 <form action="app" method="GET">
     <input type="submit" onclick="loadForm('index')"/>
+    <div id="checkList">
+        <table id="checkListTable">
+            <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    On Site
+                </th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="manager:${checkList}">
+                <td th:text="${manager.managerCheckListID}"></td>
+                <td th:text="${manager.managerName}"></td>
+                <td th:text="${manager.managerOnSite}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 </form>
 </body>
 </html>

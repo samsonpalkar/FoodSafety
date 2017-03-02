@@ -6,13 +6,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
-
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 /**
  * Created by samson.palkar on 2/13/2017.
@@ -50,13 +48,12 @@ public class Application extends SpringBootServletInitializer {
     /**
      * Main end point for handling requests.
      */
-    @RequestMapping("/searchForms")
-    public ModelAndView searchForms() throws Exception{
-        Map<String, List<ManagerChecklist>> model = new HashMap<>();
-        List<ManagerChecklist> list = (List<ManagerChecklist>) managerChecklistController.managerChecklistService.managerChecklistRepository.findAll();
-        model.put("firstForm", list);
-        String view = "selfInspection/manager/manageSelfInspectionChecklist";
-        ModelAndView modelAndView = new ModelAndView(view, model);
+    @RequestMapping(value = "/manageSelfInspectionChecklist", produces = MediaType.APPLICATION_JSON_VALUE)
+    @ResponseBody
+    public ModelAndView loadManagerChecklist(ModelAndView modelAndView) throws Exception{
+        Iterable<ManagerChecklist> checkList = managerChecklistController.managerChecklistService.managerChecklistRepository.findAll();
+        modelAndView.setViewName("/selfInspection/manager/manageSelfInspectionChecklist");
+        modelAndView.addObject("checkList", checkList);
         return modelAndView;
     }
 

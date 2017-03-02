@@ -2,16 +2,21 @@
  * Created by samson.palkar on 2/21/2017.
  */
 function loadForm(formName) {
-    var url = baseURL();
+    //window.location.href  = formName;
     $.ajax({
         type: 'GET',
         async: false,
-        dataType: 'text',
-        url: url + formName,
-        success: function(data, status){
-            console.log(data);
-            window.location.href = baseURL() + formName;
-            console.log(data);
+        contentType: 'application/json',
+        //dataType: 'json',
+        url: formName,
+        success: function(data, textStatus, jqXHR) {
+            //window.location.replace(formName);
+            console.log(jqXHR);
+        },
+        error: function(data, textStatus, jqXHR) {
+            //window.location.href = formName;
+            console.log(jqXHR);
         }
     });
+
 }
